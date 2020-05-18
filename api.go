@@ -1,4 +1,4 @@
 package tutorial
 
 
-var GoTest = "test"
+var GoTest = "ok"
