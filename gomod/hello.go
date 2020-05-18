@@ -1,5 +1,5 @@
 package gomod
 
-func Hello() string {
+func Test() string {
 	return "Test ok!"
 }
