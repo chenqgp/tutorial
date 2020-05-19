@@ -27,6 +27,22 @@ func ArraySection() {
 	fmt.Printf("%+v", arr3_sec)
 }
 
+// ArrayTypeOf commited by chenqgp
+// It performed the how array is an `value type` in GO.
+func ArrayTypeOf() {
+	var arr1 [2]int
+	arr1[0] = 1
+	arr1[1] = 2
+	newA := arr1
+
+	newA[0] = 3
+
+	fmt.Println(arr1, newA)
+}
+
+// ArrayCopy commited by chenqgp
+// It performed assignment operation of the multidimensional array and
+// the subset of the multidimensinal array assigned to one dimensonal array.
 func ArrayCopy() {
 	var arr1 [2]int
 	var arr2 [2]int
@@ -43,6 +59,9 @@ func ArrayCopy() {
 	fmt.Println(arr3[1], arr3[2], arr2)
 }
 
+// ArrayPointer commited by chenqgp
+// It performed assignment operation of pointer value from two array
+// and uncertainly length of an array assign to certainly length of an array.
 func ArrayPointer() [2]*int {
 	var arrV [2]*int
 	arrP := [...]*int{new(int), new(int)}
@@ -54,6 +73,9 @@ func ArrayPointer() [2]*int {
 	return arrV
 }
 
+// ReceiveLargeArray commited by chenqgp
+// It performed large array passed through into function's problem
+// and how to change its value.
 func ReceiveLargeArray(array *[1e6]int) {
 	// ...
 	val := array[0]
