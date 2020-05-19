@@ -1,4 +1,4 @@
-package sample
+package arraySliceMap
 
 import "fmt"
 
