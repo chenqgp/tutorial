@@ -13,5 +13,6 @@ Tip: If you turn on the `Go111MODULE`, your coding of `import` packages in the p
   
   require github.com/chenqgp/tutorial [v1.0.1-0.20200518143801-d085fb9b89a5 or tags]
   ```
-### 2. Array Slice Map
-* desc...
+### 2. Array Slice and Map
+* Array
+It has a **centainly known length** and each element was a **same type** in array, when you delivered a parameter from array that it always **passed the value** of the array not its pointer.
