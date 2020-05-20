@@ -15,4 +15,4 @@ golang examples.
   ```
 ## 2. Array Slice and Map
 ###### Array
-It has a **centainly known length** and each element was a **same type** in array, when you delivered a parameter from array that it always **passed the value** of the array not its pointer. The values in array have continually stored by one next to one in memory, so the operation of the array is very fast.
+Array is one of `data type` in GO. It has a **centainly known length** and each element was a **same type** in array, when you delivered a parameter from array that it always **passed the value** of the array not its pointer. The values in array have continually stored by one next to one in memory, so the operation of the array is very fast.
