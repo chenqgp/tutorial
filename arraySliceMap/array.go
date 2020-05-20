@@ -60,7 +60,7 @@ func ArrayCopy() {
 }
 
 // ArrayPointer commited by chenqgp
-// It performed assignment operation of pointer value from two array
+// It performed assignment operation of pointer of value from two array
 // and uncertainly length of an array assign to certainly length of an array.
 func ArrayPointer() [2]*int {
 	var arrV [2]*int
@@ -71,6 +71,7 @@ func ArrayPointer() [2]*int {
 	// arrP := [...]*int{&a, &b}
 	// ```
 	arrP := [...]*int{new(int), new(int)}
+	// Now arrV and arrP have shared the same memory address
 	arrV = arrP
 
 	*arrP[0] = 10
