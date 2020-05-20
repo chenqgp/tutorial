@@ -88,7 +88,7 @@ func ReceiveLargeArray(array *[1e6]int) {
 	val := array[0]
 	fmt.Println()
 	fmt.Printf("%T, %v", val, val)
-	// Did the value of array changed which passed into the function?
+	// Does the value of array changed which passed into the function?
 	array[0] = 7
 	// And this?
 	val = 8
@@ -100,7 +100,9 @@ func ArraySlice() {
 	arr := [3]int{1, 2}
 	slice := arr[1:]
 	slice[1] = 5
+	// Does the value of arr changed?
 	fmt.Println(arr, slice)
+	// It's turn into a slice now.
 	slice = append(slice, 8)
 	fmt.Println(arr, slice)
 }
