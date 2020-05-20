@@ -40,9 +40,9 @@ func ArrayTypeOf() {
 	fmt.Println(arr1, newA)
 }
 
-// ArrayCopy commited by chenqgp
+// ArrayCopy commited by chenqgpo
 // It performed assignment operation of the multidimensional array and
-// the subset of the multidimensinal array assigned to one dimensonal array.
+// the subset of the multidimensional array assigned to one dimensional array.
 func ArrayCopy() {
 	var arr1 [2]int
 	var arr2 [2]int
