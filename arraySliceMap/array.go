@@ -88,7 +88,7 @@ func ReceiveLargeArray(array *[1e6]int) {
 	val := array[0]
 	fmt.Println()
 	fmt.Printf("%T, %v", val, val)
-	// Does the value of array changed which passed into the function ouside?
+	// Does the value of array changed which passed into the function outside?
 	array[0] = 7
 	// And this?
 	val = 8
