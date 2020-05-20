@@ -102,7 +102,7 @@ func ArraySlice() {
 	slice[1] = 5
 	// Does the value of arr changed?
 	fmt.Println(arr, slice)
-	// It's turn into a slice now.
+	// It turn into a slice now.
 	slice = append(slice, 8)
 	fmt.Println(arr, slice)
 }
