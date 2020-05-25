@@ -94,7 +94,7 @@ func ReceiveLargeArray(array *[1e6]int) {
 	val = 8
 }
 
-// ReceiveLargeArray commited by chenqgp
+// ArraySlice commited by chenqgp
 // Array could be making into several `Slice`.
 func ArraySlice() {
 	arr := [3]int{1, 2}
@@ -107,7 +107,7 @@ func ArraySlice() {
 	fmt.Println(arr, slice)
 }
 
-// ReceiveLargeArray commited by chenqgp
+// ArrayCompare commited by chenqgp
 // Because Array is a type of value that it can compare with other Array,
 // but the feature is not applicable to Slice.
 func ArrayCompare() {
