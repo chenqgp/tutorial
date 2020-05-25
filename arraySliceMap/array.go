@@ -40,9 +40,9 @@ func ArrayTypeOf() {
 	fmt.Println(arr1, newA)
 }
 
-// ArrayCopy commited by chenqgp
+// ArrayCopy commited by chenqgpo
 // It performed assignment operation of the multidimensional array and
-// the subset of the multidimensinal array assigned to one dimensonal array.
+// the subset of the multidimensional array assigned to one dimensional array.
 func ArrayCopy() {
 	var arr1 [2]int
 	var arr2 [2]int
@@ -60,7 +60,7 @@ func ArrayCopy() {
 }
 
 // ArrayPointer commited by chenqgp
-// It performed assignment operation of pointer value from two array
+// It performed assignment operation of pointer of value from two array
 // and uncertainly length of an array assign to certainly length of an array.
 func ArrayPointer() [2]*int {
 	var arrV [2]*int
@@ -71,6 +71,7 @@ func ArrayPointer() [2]*int {
 	// arrP := [...]*int{&a, &b}
 	// ```
 	arrP := [...]*int{new(int), new(int)}
+	// Now arrV and arrP have shared the same memory address
 	arrV = arrP
 
 	*arrP[0] = 10
@@ -87,7 +88,7 @@ func ReceiveLargeArray(array *[1e6]int) {
 	val := array[0]
 	fmt.Println()
 	fmt.Printf("%T, %v", val, val)
-	// Did the value of array changed which passed into the function?
+	// Does the value of array changed which passed into the function?
 	array[0] = 7
 	// And this?
 	val = 8
@@ -99,7 +100,9 @@ func ArraySlice() {
 	arr := [3]int{1, 2}
 	slice := arr[1:]
 	slice[1] = 5
+	// Does the value of arr changed?
 	fmt.Println(arr, slice)
+	// It turn into a slice now.
 	slice = append(slice, 8)
 	fmt.Println(arr, slice)
 }
