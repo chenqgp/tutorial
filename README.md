@@ -17,4 +17,4 @@ golang examples.
 ###### Array
 Array is one of `data type` in GO. It has a **centainly known length** and each element was a **same type** in array, when you delivered a parameter from array that it always **passed the value** of the array not its pointer. The values in array have continually stored by one next to one in memory, so the operation of the array is very fast.
 ###### Slice
-Slice is a data structures. It's easy to manage sets of the datas, Slice was different from Array that Slice has a modifiable length.
+Slice is a data structures. It's easy to manage sets of the datas, Slice was different from Array that Slice has a modifiable length. It's completely hard to tell clearly that Slice has numerous features, thouth, but We listed many examples in arraySliceMap folder. Just check it out!
