@@ -49,8 +49,10 @@ func SliceComparing() {
 }
 
 // SliceLengthCap commited by chenqgp
-// Slice's length and cap could be modifiable.
-// The cap would doubled when cap has got full.
+// Slice's length and capacity could be modifiable.
+// The capacity would doubled when capcities has got full,
+// Tip: The capacity would got 125% than before when
+// appending more than 1000 item in Slice.
 func SliceLengthCap() {
 	slice := []int{1, 2, 3, 4, 5}
 	a := slice[2:4]
@@ -68,6 +70,28 @@ func SliceLengthCap() {
 	fmt.Println(len(a), cap(a), len(slice), cap(slice), slice)
 }
 
+// SliceSpecifiedCap commited by chenqgp
+// New Slice can specify capacity while separating the Slice,
+// and the feature as same as example above.
+// Tip: If the capacity while
+// initializing new Slice more than the Slice, will occurr an error.
+func SliceSpecifiedCap() {
+	source := []int{1, 2, 3, 4, 5}
+	slice := source[2:3:4]
+	fmt.Println(slice)
+	// Effected var source.
+	slice = append(slice, 8)
+	fmt.Println(source, slice, cap(slice))
+	// Does effected var source that var slice's capacity
+	// more that `(4 - 2)` while appending new item?
+	slice = append(slice, 9)
+	fmt.Println(source, slice, cap(slice))
+
+	// Occurred error
+	//bSlice := source[2:3:6]
+	//fmt.Println(bSlice)
+}
+
 // SliceNil commited by chenqgp
 // If you want to create a nil or empty Slice.
 // The example showing how.
@@ -82,22 +106,22 @@ func SliceNil() {
 // It will performed The features about cap of Slice.
 func SliceCap() {
 	slice := make([]int, 2, 5)
-	// the slice below created length was 2, cap was 5; now need
+	// the slice below created length was 2, capacity was 5; now need
 	// to reparate new one from the slice which index start from 1 and
 	// give the 3 into brackets after colon.
 	// will report error under line?
 	newSlice := slice[1:3]
 	// Answer is no.
 
-	// the newSlice's length and cap: Cap of the slice assume `k`; So,
+	// the newSlice's length and capacity: Capacities of the slice assume `k`; So,
 	// length = 3 - 1
 	// cap = k - 1
 
-	// Following below sets, the newSlice remaining capacities was 4, visit the index 4
+	// Following below sets, the newSlice remaining capacity was 4, visit the index 4
 	// of the newSlice that whether has the expected value 0.
 	fmt.Println(len(newSlice), cap(newSlice), newSlice[2])
 	// Answer is no.
-	// the extra capacities is useless.
+	// the extra capacity is useless.
 }
 
 // SliceOverflow commited by chenqgp
@@ -106,13 +130,25 @@ func SliceOverflow() {
 	slice := []int{1, 2, 3, 4}
 	newS := slice[1:3]
 	newS = append(newS, 5)
-	// Var newS length was 2, capacity was 3 before it has appended number 5,
+	// Var newS length was 2, capacitiy was 3 before it has appended number 5,
 	// then length is 3, capacity 3.
 	fmt.Println(slice)
-	// Append agagin, the capacity has overflowed, newS will create new copy and 
+	// Append agagin, the capacity has overflowed, newS will create new copy and
 	// new Array for the Slice.
 	newS = append(newS, 6)
-	newS[0] = 10 
+	newS[0] = 10
 	// Checking the variable slice has effected or not.
 	fmt.Println(slice)
+}
+
+// SliceOverflow commited by chenqgp
+// We can set the capacity as same as the length of the new Slice 
+// while separating the Slice. we will see what happened example below.
+func SliceAvoidSideEffect() {
+	source := []int{1, 2, 3, 4, 5}
+	slice := source[2:3:3]
+	// once var slice has appended item, var slice capacity would overflow,
+	// Go will create copy of slice and append the item(666) into the copy.
+	slice = append(slice, 666)
+	fmt.Println(source, slice, cap(slice))
 }
