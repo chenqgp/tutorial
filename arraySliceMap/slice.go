@@ -73,8 +73,8 @@ func SliceLengthCap() {
 // SliceSpecifiedCap commited by chenqgp
 // New Slice can specify capacity while separating the Slice,
 // and the feature as same as example above.
-// Tip: If the capacity while
-// initializing new Slice more than the Slice, will occurr an error.
+// Tip: If the capacity that specified after `the second colon` while
+// resplitting a new Slice more than the Slice, will occurr an error.
 func SliceSpecifiedCap() {
 	source := []int{1, 2, 3, 4, 5}
 	slice := source[2:3:4]
@@ -82,8 +82,8 @@ func SliceSpecifiedCap() {
 	// Effected var source.
 	slice = append(slice, 8)
 	fmt.Println(source, slice, cap(slice))
-	// Does effected var source that var slice's capacity
-	// more that `(4 - 2)` while appending new item?
+	// Does it effect var source that var slice's capacity
+	// more than `(4 - 2)` while appending new item?
 	slice = append(slice, 9)
 	fmt.Println(source, slice, cap(slice))
 
@@ -103,22 +103,24 @@ func SliceNil() {
 }
 
 // SliceCap commited by chenqgp
-// It will performed The features about cap of Slice.
+// It will performed The advanced features about cap of Slice.
 func SliceCap() {
 	slice := make([]int, 2, 5)
 	// the slice below created length was 2, capacity was 5; now need
-	// to reparate new one from the slice which index start from 1 and
-	// give the 3 into brackets after colon.
+	// to resplit a new one from the slice which index start from 1 and
+	// give the 3 into brackets after colon that it means the length from 
+    // index 0 through 2.
 	// will report error under line?
 	newSlice := slice[1:3]
 	// Answer is no.
 
-	// the newSlice's length and capacity: Capacities of the slice assume `k`; So,
+	// the newSlice's length and capacity: Capacities of the slice assume a `k`; So,
 	// length = 3 - 1
 	// cap = k - 1
 
-	// Following below sets, the newSlice remaining capacity was 4, visit the index 4
-	// of the newSlice that whether has the expected value 0.
+	// Following below sets, the newSlice remaining capacity was 4, visit 
+    // the index 2 (out of length[0,1] bound) of the newSlice that whether 
+    // has the expected value 0.
 	fmt.Println(len(newSlice), cap(newSlice), newSlice[2])
 	// Answer is no.
 	// the extra capacity is useless.
@@ -143,7 +145,7 @@ func SliceOverflow() {
 
 // SliceOverflow commited by chenqgp
 // We can set the capacity as same as the length of the new Slice 
-// while separating the Slice. we will see what happened example below.
+// while resplitting the Slice. we will see what happened example below.
 func SliceAvoidSideEffect() {
 	source := []int{1, 2, 3, 4, 5}
 	slice := source[2:3:3]
@@ -151,4 +153,22 @@ func SliceAvoidSideEffect() {
 	// Go will create copy of slice and append the item(666) into the copy.
 	slice = append(slice, 666)
 	fmt.Println(source, slice, cap(slice))
+    // A new Slice will create copy of slice and its array data after exceeding 
+    // capacity through appending item, based on the length equals the capacity.
+}
+
+// SliceIterate commited by chenqgp
+// It performed `range` create the copy of every item of the Slice.
+// Tip: Every copy from `range` that point same pointer.
+func SliceIterate() {
+    source := []int{1,2,3,4,5}
+    for index, value := range source {
+        if value == 3 {
+            value = 999
+        }
+        if value == 2 {
+            source[index] = 666
+        }
+    }
+    fmt.Println(source)
 }
