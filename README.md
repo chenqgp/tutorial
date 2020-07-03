@@ -11,7 +11,7 @@ golang examples.
   
   go 1.14
   
-  require github.com/chenqgp/tutorial [v1.0.1-0.20200518143801-d085fb9b89a5 or tags]
+  require github.com/chenqgp/tutorial [v0.0.0-20200702084203-bbe18f8b3a9b or tags]
   ```
 ## 2. Array Slice and Map
 ###### Array
