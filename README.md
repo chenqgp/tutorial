@@ -11,10 +11,10 @@ golang examples.
   
   go 1.14
   
-  require github.com/chenqgp/tutorial [v1.0.1-0.20200518143801-d085fb9b89a5 or tags]
+  require github.com/chenqgp/tutorial [v0.0.0-20200702084203-bbe18f8b3a9b or tags]
   ```
 ## 2. Array Slice and Map
 ###### Array
 Array is one of `data type` in GO. It has a **centainly known length** and each element was a **same type** in array, when you delivered a parameter from array that it always **passed the value** of the array not its pointer. The values in array have continually stored by one next to one in memory, so the operation of the array is very fast.
 ###### Slice
-Slice is a data structures. It's easy to manage sets of the datas, Slice was different from Array that Slice has a modifiable length. It's completely hard to tell clearly that Slice has numerous features, thouth, but We listed many examples in arraySliceMap folder. Just check it out!
+Slice is a data structures. It's easy to manage sets of the datas, Slice was different from Array that Slice has a modifiable length. It's completely hard to tell clearly that Slice has numerous features, thouth, but We listed many examples in arraySliceMap folder. Just check it out! when you pass Slice as paramiter to a function or method, this situation consumes less memory than passing Array. The pointer, length, capacity of a Slice totally deals with 24 bytes(every one of them takes 8 byte) in your memory, it just delivered a copy of the Slice rather than underlying datas.
