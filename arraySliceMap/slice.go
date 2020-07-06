@@ -159,7 +159,7 @@ func SliceAvoidSideEffect() {
 
 // SliceIterate commited by chenqgp
 // It performed `range` create the copy of every item of the Slice.
-// Tip: Every copy from `range` that point same pointer.
+// Tip: Every copy from `range` that the point has same pointer(addr).
 func SliceIterate() {
     source := []int{1,2,3,4,5}
     for index, value := range source {
