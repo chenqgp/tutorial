@@ -43,9 +43,9 @@ func MapKey() {
 	// Does it work? the key is a Slice or something else..
 
 	/*
-	m := [[]int]string{}
-	tm := tmap("map").strings
-	m2 := [tm]string{} 
+		m := [[]int]string{}
+		tm := tmap("map").strings
+		m2 := [tm]string{}
 	*/
 
 	// Slice, function, data structures within Slice can not be a key in Map,
@@ -62,12 +62,12 @@ func MapKey() {
 func MapNil() {
 	// Does var mn could assign a value? we want store some values into mn.
 
-	/* 
-	var mn map[string]int
-	mn["store"] = 1098
+	/*
+		var mn map[string]int
+		mn["store"] = 1098
 	*/
 
-	// if a Map is nil, we can't store value into it. we will occur a error message 
+	// if a Map is nil, we can't store value into it. we will occur a error message
 	// if we do this:
 	// Panic: `assignment to entry in nil map`.
 
@@ -89,9 +89,9 @@ func MapExists() {
 	if value, ok := m["height"]; !ok {
 		fmt.Printf("value: %T, errors: %s", value, "what is height? we don't store this value.")
 	}
-	// We can see the type kind of the value was the "zero"(empty string) 
+	// We can see the type kind of the value was the "zero"(empty string)
 	// that the type was declared it before by us. We would determine the key
-	// was not exists from wheter the second returned value is false or wheter 
+	// was not exists from wheter the second returned value is false or wheter
 	// the value is "zero".
 	// Tip: The map must not be an nil Map.
 
@@ -104,7 +104,7 @@ func MapExists() {
 	if mInt["second"] == 0 {
 		fmt.Println("The second key is not exists.")
 	}
-	
+
 	// Delete the key and value in a Map.
 	delete(m, "color")
 
@@ -116,5 +116,21 @@ func MapDeliver(m map[string]int) {
 	m["add"] = 2
 
 	// When you delivered a Map into a function, It won't make a copy of the Map.
-	// Quite similar with Slice in this case.
+	// Quite similar with Slice in this case, you can try the parameter was
+	// passed from outside will change or not.
+}
+
+// MapDeliver commited by chenqgp
+func MapRange() {
+	m := make(map[string]int)
+	m["one"] = 1
+	m["two"] = 2
+	m["three"] = 3
+	m["four"] = 4
+
+	for key, value := range m {
+		fmt.Println(key, value, &value)
+	}
+	// Literal Map, every copy randomly came from var m, you can see the address of values
+	// were same.
 }
